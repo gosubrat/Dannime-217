@@ -1,0 +1,359 @@
+​
+==================Phase3 BYD DAnniGEN41==============================
+
+
+
+
+select top 10* from FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL
+select top 10* from FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL_HIST
+
+
+begin tran 
+
+
+
+ALTER TABLE FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL  ADD InvoiceItemQuantity decimal(19,10);
+ALTER TABLE FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL  ADD InvoiceUnitCost_currency int;
+ALTER TABLE FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL  ADD InvoiceUnitCost_amount decimal(18,2);
+
+ALTER TABLE FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL_HIST  ADD InvoiceItemQuantity decimal(19,10);
+ALTER TABLE FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL_HIST  ADD InvoiceUnitCost_currency int;
+ALTER TABLE FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL_HIST  ADD InvoiceUnitCost_amount decimal(18,2);
+
+rollback
+
+
+
+exec sp_helptext FB__HISTINNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_LOAD
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[FB__HISTINNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_LOAD]    Script Date: 29-10-2025 18:12:25 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+ALTER PROCEDURE [dbo].[FB__HISTINNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_LOAD]
+@PKey_pkey uniqueidentifier,
+@PKey_version smallint
+
+AS
+BEGIN
+Select PKey_pkey,
+PKey_version,
+ItemType,
+GenericItemCode,
+ItemCode,
+ItemDescription,
+ItemGroup,
+ItemQuantity,
+ItemTaxRate,
+UnitCost_currency,
+UnitCost_amount,
+ItemCost_currency,
+ItemCost_amount,
+ItemTax_currency,
+ItemTax_amount,
+TotalAmt_currency,
+TotalAmt_amount,
+UpdateDate,
+AuthItemQuantity ,
+AuthUnitCost_currency,
+AuthUnitCost_amount,
+AuthItemCost_currency,
+AuthItemCost_amount,
+ReqItemQuantity,
+ReqUnitCost_currency,
+ReqUnitCost_amount,
+ReqItemCost_currency,
+ReqItemCost_amount,
+InvoiceItemQuantity,
+InvoiceUnitCost_currency,
+InvoiceUnitCost_amount
+ from FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL_HIST
+ where PKey_pkey = @PKey_pkey
+and PKey_version = @PKey_version
+END
+GO
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_LOAD]    Script Date: 29-10-2025 18:14:39 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+ALTER PROCEDURE [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_LOAD]
+@PKey_pkey uniqueidentifier,
+@PKey_version smallint
+
+AS
+BEGIN
+Select PKey_pkey,
+PKey_version,
+ItemType,
+GenericItemCode,
+ItemCode,
+ItemDescription,
+ItemGroup,
+ItemQuantity,
+ItemTaxRate,
+UnitCost_currency,
+UnitCost_amount,
+ItemCost_currency,
+ItemCost_amount,
+ItemTax_currency,
+ItemTax_amount,
+TotalAmt_currency,
+TotalAmt_amount,
+UpdateDate,
+AuthItemQuantity,
+AuthUnitCost_currency,
+AuthUnitCost_amount,
+AuthItemCost_currency,
+AuthItemCost_amount,
+ReqItemQuantity,
+ReqUnitCost_currency,
+ReqUnitCost_amount,
+ReqItemCost_currency,
+ReqItemCost_amount,
+InvoiceItemQuantity,
+InvoiceUnitCost_currency,
+InvoiceUnitCost_amount
+
+ from FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL
+ where PKey_pkey = @PKey_pkey
+END
+GO
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_SAVE]    Script Date: 29-10-2025 18:14:46 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+ALTER PROCEDURE [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_SAVE]
+@PKey_pkey uniqueidentifier output,
+@PKey_version smallint output,
+@ItemType int,
+@GenericItemCode nvarchar(100),
+@ItemCode nvarchar(150),
+@ItemDescription nvarchar(150),
+@ItemGroup nvarchar(150),
+@ItemQuantity decimal(19,10),
+@ItemTaxRate decimal(19,10),
+@UnitCost_currency int,
+@UnitCost_amount decimal(18,2),
+@ItemCost_currency int,
+@ItemCost_amount decimal(18,2),
+@ItemTax_currency int,
+@ItemTax_amount decimal(18,2),
+@TotalAmt_currency int,
+@TotalAmt_amount decimal(18,2),
+@UpdateDate datetime,
+@AuthItemQuantity decimal(19,10),
+@AuthUnitCost_currency int,
+@AuthUnitCost_amount decimal(18,2),
+@AuthItemCost_currency int,
+@AuthItemCost_amount decimal(18,2),
+@ReqItemQuantity decimal(19,10),
+@ReqUnitCost_currency int,
+@ReqUnitCost_amount decimal(18,2),
+@ReqItemCost_currency int,
+@ReqItemCost_amount decimal(18,2),
+@InvoiceItemQuantity decimal(19,10),
+@InvoiceUnitCost_currency int,
+@InvoiceUnitCost_amount decimal(18,2)
+AS
+BEGIN
+
+Set @PKey_pkey = NEWID()
+Insert into FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL
+(
+PKey_pkey,
+PKey_version,
+ItemType,
+GenericItemCode,
+ItemCode,
+ItemDescription,
+ItemGroup,
+ItemQuantity,
+ItemTaxRate,
+UnitCost_currency,
+UnitCost_amount,
+ItemCost_currency,
+ItemCost_amount,
+ItemTax_currency,
+ItemTax_amount,
+TotalAmt_currency,
+TotalAmt_amount,
+UpdateDate,
+AuthItemQuantity ,
+AuthUnitCost_currency,
+AuthUnitCost_amount,
+AuthItemCost_currency,
+AuthItemCost_amount,
+ReqItemQuantity,
+ReqUnitCost_currency,
+ReqUnitCost_amount,
+ReqItemCost_currency,
+ReqItemCost_amount,
+InvoiceItemQuantity,
+InvoiceUnitCost_currency,
+InvoiceUnitCost_amount
+)
+values
+(
+@PKey_pkey,
+@PKey_version,
+@ItemType,
+@GenericItemCode,
+@ItemCode,
+@ItemDescription,
+@ItemGroup,
+@ItemQuantity,
+@ItemTaxRate,
+@UnitCost_currency,
+@UnitCost_amount,
+@ItemCost_currency,
+@ItemCost_amount,
+@ItemTax_currency,
+@ItemTax_amount,
+@TotalAmt_currency,
+@TotalAmt_amount,
+@UpdateDate,
+@AuthItemQuantity ,
+@AuthUnitCost_currency,
+@AuthUnitCost_amount,
+@AuthItemCost_currency,
+@AuthItemCost_amount,
+@ReqItemQuantity,
+@ReqUnitCost_currency,
+@ReqUnitCost_amount,
+@ReqItemCost_currency,
+@ReqItemCost_amount,
+@InvoiceItemQuantity,
+@InvoiceUnitCost_currency,
+@InvoiceUnitCost_amount
+)
+
+
+END
+GO
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_UPDATE]    Script Date: 29-10-2025 18:14:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+ALTER PROCEDURE [dbo].[FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_UPDATE]
+@PKey_pkey uniqueidentifier,
+@PKey_version smallint,
+@PKey_newversion smallint,
+@ItemType int,
+@GenericItemCode nvarchar(100),
+@ItemCode nvarchar(150),
+@ItemDescription nvarchar(150),
+@ItemGroup nvarchar(150),
+@ItemQuantity decimal(19,10),
+@ItemTaxRate decimal(19,10),
+@UnitCost_currency int,
+@UnitCost_amount decimal(18,2),
+@ItemCost_currency int,
+@ItemCost_amount decimal(18,2),
+@ItemTax_currency int,
+@ItemTax_amount decimal(18,2),
+@TotalAmt_currency int,
+@TotalAmt_amount decimal(18,2),
+@UpdateDate datetime,
+@AuthItemQuantity decimal(19,10),
+@AuthUnitCost_currency int,
+@AuthUnitCost_amount decimal(18,2),
+@AuthItemCost_currency int,
+@AuthItemCost_amount decimal(18,2),
+@ReqItemQuantity decimal(19,10),
+@ReqUnitCost_currency int,
+@ReqUnitCost_amount decimal(18,2),
+@ReqItemCost_currency int,
+@ReqItemCost_amount decimal(18,2),
+@InvoiceItemQuantity decimal(19,10),
+@InvoiceUnitCost_currency int,
+@InvoiceUnitCost_amount decimal(18,2)
+AS
+BEGIN
+
+Update FB_INNER_CLAIM_INSTANCE_REPAIR_COST_ITEM_TBL
+
+SET
+PKey_version = @PKey_newversion,
+ItemType = @ItemType,
+GenericItemCode = @GenericItemCode,
+ItemCode = @ItemCode,
+ItemDescription = @ItemDescription,
+ItemGroup = @ItemGroup,
+ItemQuantity = @ItemQuantity,
+ItemTaxRate = @ItemTaxRate,
+UnitCost_currency = @UnitCost_currency,
+UnitCost_amount = @UnitCost_amount,
+ItemCost_currency = @ItemCost_currency,
+ItemCost_amount = @ItemCost_amount,
+ItemTax_currency = @ItemTax_currency,
+ItemTax_amount = @ItemTax_amount,
+TotalAmt_currency = @TotalAmt_currency,
+TotalAmt_amount = @TotalAmt_amount,
+UpdateDate = @UpdateDate,
+AuthItemQuantity = @AuthItemQuantity ,
+AuthUnitCost_currency = @AuthUnitCost_currency,
+AuthUnitCost_amount = @AuthUnitCost_amount,
+AuthItemCost_currency = @AuthItemCost_currency,
+AuthItemCost_amount = @AuthItemCost_amount,
+ReqItemQuantity = @ReqItemQuantity,
+ReqUnitCost_currency = @ReqUnitCost_currency,
+ReqUnitCost_amount = @ReqUnitCost_amount,
+ReqItemCost_currency = @ReqItemCost_currency,
+ReqItemCost_amount  = @ReqItemCost_amount,
+InvoiceItemQuantity = @InvoiceItemQuantity,
+InvoiceUnitCost_currency = @InvoiceUnitCost_currency,
+InvoiceUnitCost_amount = @InvoiceUnitCost_amount
+ where PKey_pkey = @PKey_pkey
+and PKey_version = @PKey_version
+
+END
+GO
+
+
+
+
+
+
+ 
