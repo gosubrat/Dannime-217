@@ -1,0 +1,134 @@
+--UPDATE ORG TABLES (UAE GENERIC)                                                                    
+-------------------------------------------------------------------------------------------------------- 
+select * from FB_ENT_ORG_ORGANISATION_TBL  where OrganisationType='ClientOrg' and companyname='BMW Dubai' order by UpdateDate desc      --D00012924
+select * from FB_ENT_ORG_ORGANISATION_TBL_HIST  where OrganisationType='ClientOrg' and companyname='BMW Dubai' order by UpdateDate desc --D00012924
+
+
+--INSERT INTO PRODUCT ASSOCIATION                                                           
+--------------------------------------------------------------------------------------------------------
+
+select * from FB_ENT_PRODUCT_ASSOCIATION_TBL WHERE orgcode='D00012924' 
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+select * from FB_ENT_PRODUCT_TBL where ProductCode like 'BMW SMART'
+
+
+--INSERT MULTIPLE INTO PRODUCT_INFO_TBL 
+
+-------------------------------------------GAP-------------------------------------------------------------
+
+select * from FB_ENT_PRODUCT_INFO_TBL where ProductKey_pkey like 'B5ACEBE4-292E-4904-917D-7FC075EBD36D'
+
+
+------------------------------------------------smart--------------------------------------------------------
+--INSERT INTO INFO_STATIC_TBL 
+--------------------------------------------------------------------------------------------------------
+
+
+select * from FB_ENT_INFO_STATIC_TBL  where productcode='BMW SMART' order by StartDate desc 
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+select * from FB_CATAGORY_TBL where CatagoryValue in ('BMW Dubai','BMWBrand') --bmwbrand for all
+--INSERT INTO SCHEME_TBL 
+--------------------------------------------------------------------------------------------------------
+
+
+
+select * from FB_ENT_SCHEME_TBL where SchemeGroup='BMW Dubai'
+
+--INSERT INTO SELLING_LOCK_TBL 
+--------------------------------------------------------------------------------------------------------
+
+select * from FB_ENT_SELLING_LOCK_TBL where ClientName='BMW Dubai'
+select * from FB_ENT_SELLING_LOCK_TBL_HIST where ClientName='BMW Dubai'
+
+--INSERT INTO CLAIM_AUTHORITY_LIMIT 
+--------------------------------------------------------------------------------------------------------
+
+
+
+select * from FB_ENT_CLAIM_AUTHORITY_LIMIT_TBL where ClientName='BMW Dubai'
+select * from FB_ENT_CLAIM_AUTHORITY_LIMIT_TBL_HIST  where ClientName='BMW Dubai'
+
+--INSERT INTO SPOE_CHECK_TBL 
+--------------------------------------------------------------------------------------------------------
+
+
+
+select * from FB_ENT_SPOE_CHECK_TBL   where ClientName='BMW Dubai' 
+select * from FB_ENT_SPOE_CHECK_TBL_HIST  where ClientName='BMW Dubai'
+
+--------------------------------------------------------------------------
+
+select * from FB_ENT_SPOE_CHECK_FOR_CLAIMS_TBL(in clinetname BMW Dubai client is not present)
+
+--------------------------------------------------------------------------
+  select * from FB_INNER_CLAIM_INSTANCE_CONSTANTS_TBL (claiminstanceid ,policy svcheminstanceid only )
+select * from FB_INNER_CLAIM_INSTANCE_CONSTANTS_TBL_HIST (claiminstanceid ,policy svcheminstanceid only )
+--------------------------------------------------------------------------
+Select * from FB_INNER_CLAIM_INSTANCE_PAYEE_DETAILS_TBL where PayeeExtra1='BMW Dubai'
+Select * from FB_INNER_CLAIM_INSTANCE_PAYEE_DETAILS_TBL_HIST where PayeeExtra1='BMW Dubai'
+--------------------------------------------------------------------------
+select top 10* from FB_OUTER_CLAIM_INSTANCE_CONSTANTS_TBL(onlyclaiminstanceid)
+select top 10* from FB_OUTER_CLAIM_INSTANCE_CONSTANTS_TBL_HIST (onlyclaiminstanceid)
+--------------------------------------------------------------------------
+select * from FB_POLICY_INSTANCE_POLICY_CONSTANTS_TBL(schemeinstanceid, schemeid only)
+select * from FB_POLICY_INSTANCE_POLICY_CONSTANTS_TBL_HIST(schemeinstanceid, schemeid only)
+--------------------------------------------------------------------------
+ select * from FB_PROPOSAL_INSTANCE_SEARCH_INFO_TBL(schemeinstanceid, schemeid only)
+ select * from FB_PROPOSAL_INSTANCE_SEARCH_INFO_TBL_HIST (schemeinstanceid, schemeid only)
+--------------------------------------------------------------------------
+  select * from FB_ENT_PARTDISCOUNT_LOCK_TBL where clientname='BMW Dubai'
+  select * from FB_ENT_PARTDISCOUNT_LOCK_TBL_HIST where clientname='BMW Dubai'
+--------------------------------------------------------------------------
+  select * from  FB_ENT_REPORT_CLAIM_DUMP_TBL where clientname='BMW Dubai' (table is empty)
+--------------------------------------------------------------------------
+
+   select top 10* from  FB_QUOTE_INSTANCE_QUOTE_CONSTANTS_TBL (only schemeid, schemeinstanceid)
+select top 10* from  FB_QUOTE_INSTANCE_QUOTE_CONSTANTS_TBL_HIST (only schemeid, schemeinstanceid)
+
+--------------------------------------------------------------------------
+select top 10* FB_UPLOADCLAIMFILE_TBL where uploadType='BMW Dubai'
+
+--------------------------------------------------------------------------
+select top 10* FB_UPLOADFILE_TBL where uploadType='BMW Dubai'
+
+--------------------------------------------------------------------------
+---==================== DWH ======================================-------
+
+ select top 10* from FB_CLAIM_CONSTANTS_TBL (policyinstanceid,schemeid,[ClaimInstanceId])
+ select top 10* from FB_CLAIM_CONSTANTS_TBL_HIST (policyinstanceid,schemeid,[ClaimInstanceId])
+
+--------------------------------------------------------------------------
+
+  select top 10* from FB_ENT_CLAIM_TRANSACTION_TBL where GroupClientName='BMW Dubai'
+  select top 10* from FB_ENT_CLAIM_TRANSACTION_TBL_HIST where GroupClientName='BMW Dubai'
+--------------------------------------------------------------------------
+    select top 10* from  FB_ENT_DWH_CUSTOMER_INSTANCE_TBL where ClientName='BMW Dubai'
+    select top 10* from  FB_ENT_DWH_CUSTOMER_INSTANCE_TBL_HIST where ClientName='BMW Dubai'
+--------------------------------------------------------------------------
+    select top 10* from FB_ENT_DWH_ORG_ORGANISATION_TBL where ClientName='BMW Dubai'
+    select top 10* from FB_ENT_DWH_ORG_ORGANISATION_TBL_HIST where ClientName='BMW Dubai'
+
+--------------------------------------------------------------------------
+    select top 10* from   FB_ENT_DWH_POLICY_COUNTS_TBL where Client='BMW Dubai'
+--------------------------------------------------------------------------
+    select top 10* FB_ENT_POLICY_TRANSACTION_TBL where ClientCode='BMW Dubai'
+    select top 10* FB_ENT_POLICY_TRANSACTION_TBL_HIST where ClientCode='BMW Dubai'
+--------------------------------------------------------------------------
+
+    Select top 10* from FB_POLICY_CONSTANTS_TBL (schemeInstanceid,schemeid)
+    Select top 10* from FB_POLICY_CONSTANTS_TBL_HIST (schemeInstanceid,schemeid)
+--------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------
+-- after this add environment product and assesmentprod in danni_environs.xml
+--------------------------------------------------------------------------
+
