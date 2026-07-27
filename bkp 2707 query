@@ -294,7 +294,7 @@ select * from fb_ent_referalreportstatusrange_tbl
 
 --------------------------------------------------------------------------
 
-
+select * from fb_FB_CLAIM_PAYEEINFO_TBL where payeextra1='BMW Dubai'
 
 select * from fb_ent_dwh_customer_instance_tbl where ClientName='BMW Dubai'
 
