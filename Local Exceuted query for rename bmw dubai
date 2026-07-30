@@ -172,21 +172,7 @@ select * from FB_ENT_SPOE_CHECK_FOR_CLAIMS_TBL where clientname='BMW Dubai'
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--------------DWH -----------------------
 
 ---==================== DWH ======================================-------
 
@@ -216,6 +202,8 @@ select * from FB_ENT_SPOE_CHECK_FOR_CLAIMS_TBL where clientname='BMW Dubai'
     select top 10* from  FB_ENT_DWH_CUSTOMER_INSTANCE_TBL where ClientName='BMW Dubai'
     select top 10* from  FB_ENT_DWH_CUSTOMER_INSTANCE_TBL_HIST where ClientName='BMW Dubai'
 
+     select top 10* from  FB_ENT_DWH_CUSTOMER_INSTANCE_TBL order by LastUpdateDate desc
+
  begin tran
 
  update FB_ENT_DWH_CUSTOMER_INSTANCE_TBL set ClientName='BMW Insurance Services' where ClientName='BMW Dubai'
@@ -223,6 +211,18 @@ select * from FB_ENT_SPOE_CHECK_FOR_CLAIMS_TBL where clientname='BMW Dubai'
 
  rollback
 --------------------------------------------------------------------------
+
+select * from FB_ENT_DWH_ORG_ORGANISATION_TBL  where OrganisationType='ClientOrg' and companyname='BMW Dubai' order by LastUpdateDate desc      
+select * from FB_ENT_DWH_ORG_ORGANISATION_TBL_HIST  where OrganisationType='ClientOrg' and companyname='BMW Dubai' order by LastUpdateDate desc 
+
+begin tran
+
+update FB_ENT_DWH_ORG_ORGANISATION_TBL set  companyname='BMW Insurance Services',  DisplayName='BMW Insurance Services' where OrganisationType='ClientOrg' and companyname='BMW Dubai' and DisplayName='BMW Dubai'
+update FB_ENT_DWH_ORG_ORGANISATION_TBL_HIST set  companyname='BMW Insurance Services' , DisplayName='BMW Insurance Services' where OrganisationType='ClientOrg' and companyname='BMW Dubai' and DisplayName='BMW Dubai'
+
+rollback
+
+
     select top 10* from FB_ENT_DWH_ORG_ORGANISATION_TBL where ClientName='BMW Dubai' 
     select top 10* from FB_ENT_DWH_ORG_ORGANISATION_TBL_HIST where ClientName='BMW Dubai'
 
