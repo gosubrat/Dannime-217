@@ -1,0 +1,124 @@
+
+--UPDATE PRODUCT ASSOCIATION                                                           
+--------------------------------------------------------------------------------------------------------
+
+begin tran
+
+update FB_ENT_PRODUCT_ASSOCIATION_TBL set ProductCodes='BMW SMART|||BMW Insurance Services GAP' where orgcode='D00012924'  and PKey_pkey='13E0D400-4EB2-4BC9-A56B-574E7129E972'
+
+rollback 
+
+select * from FB_ENT_PRODUCT_ASSOCIATION_TBL WHERE PKey_pkey = '13E0D400-4EB2-4BC9-A56B-574E7129E972' 
+
+--INSERT NEW GAP PRODUCT
+--------------------------------------------------------------------------------------------------------
+select * from FB_ENT_PRODUCT_TBL order by StartDate desc
+
+begin tran
+
+INSERT INTO FB_ENT_PRODUCT_TBL values(newid(),1,NULL,NULL,'qbeae_bmwinsuranceservices_gap','BMW Insurance Services GAP',1,'Active','2026-08-03 00:00:00.000',NULL)
+
+rollback
+
+select * from FB_ENT_PRODUCT_TBL where PKey_pkey like '3E5F46F7-F190-44EB-871D-4585486F323F'
+
+
+--INSERT MULTIPLE INTO PRODUCT_INFO_TBL 
+-------------------------------------------GAP-------------------------------------------------------------
+begin tran
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','CoverType','Values::VRI GAP|||RTI GAP')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','Eligibility','Values::Code:EliN1.0Mths/1000kms##MinAge:0##MinDays:0##MinMileage:0##MaxAge:1##MaxDays:0##MaxMileage:1000##MinMWExpiryMonthsOffset:-1##MinMWExpiryMileageOffset:-1##MaxMWExpiryMonthsOffset:-1##MaxMWExpiryMileageOffset:-1|||Code:EliN48.0Mths/9999999kms##MinAge:1##MinDays:1##MinMileage:1001##MaxAge:48##MaxDays:0##MaxMileage:9999999##MinMWExpiryMonthsOffset:-1##MinMWExpiryMileageOffset:-1##MaxMWExpiryMonthsOffset:-1##MaxMWExpiryMileageOffset:-1')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','TermMthsBand','Values::12|||24|||36')
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','TermMileageBand','Values::999999')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','PurchaseType','Values::Optional')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','Model','Values::ALL VEHICLES')
+
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','EngineCC','Values::Code:Vehicles from 0 to 9999 cc##Min:0##Max:9999')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','DriveType','Values::ALL')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','Weight','Values::Code:0 kg  to 9999 kg##Min:0##Max:9999')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','SoldPriceBand','Values::Code:Values from 0 to 99999##Min:0##Max:99999|||Code:Values from 100000 to 150000##Min:100000##Max:150000|||Code:Values from 150001 to 200000##Min:150001##Max:200000|||Code:Values from 200001 to 300000##Min:200001##Max:300000|||Code:Values from 300001 to 400000##Min:300001##Max:400000|||Code:Values from 400001 to 500000##Min:400001##Max:500000|||Code:Values from 500001 to 600000##Min:500001##Max:600000|||Code:Values from 600001 to 650000##Min:600001##Max:650000|||Code:Values from 650001 to 1000000##Min:650001##Max:1000000')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','VehicleType','Values::STANDARD')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','Usage','Values::US--')
+
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES ('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','ClaimLimitBand','Values::Code:450000/450000##PerClaim:450000##Aggregate:450000')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','ClaimExcessBand','Values::CE--')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','PaymentFrequency','Values::PF--')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','SaleType','Values::Dealer')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','Location','Values::AE')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'BandInfo','Wildcard','Values::WC--')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'GroupInfo','Standard','Values::ID:1##Name:DVP##Min:0.00##Max:0.00##Std:100.00##Type:Percentage##Level:High##List:None|||ID:2##Name:Admin Fee %##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:3##Name:Fronting Fee %##Min:0.00##Max:0.00##Std:5.00##Type:Percentage##Level:High##List:None|||ID:4##Name:Marketing Allowance %##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:5##Name:Brokerage %##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:6##Name:BMW FS Fee %##Min:0.00##Max:0.00##Std:10.00##Type:Percentage##Level:High##List:None|||ID:7##Name:Parameter 7##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:8##Name:Parameter 8##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:9##Name:Parameter 9##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:10##Name:Retention##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:11##Name:T&Cs##Min:0##Max:0##Std:0##Type:Absolete##Level:Low##List:Param11')
+
+INSERT INTO FB_ENT_PRODUCT_INFO_TBL VALUES('3E5F46F7-F190-44EB-871D-4585486F323F',1,'GroupInfo','Campaign','Values::ID:1##Name:DVP##Min:0.00##Max:0.00##Std:100.00##Type:Percentage##Level:High##List:None|||ID:2##Name:Admin Fee %##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:3##Name:Fronting Fee %##Min:0.00##Max:0.00##Std:5.00##Type:Percentage##Level:High##List:None|||ID:4##Name:Marketing Allowance %##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:5##Name:Brokerage##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:6##Name:Parameter 6##Min:0.00##Max:0.00##Std:10.00##Type:Percentage##Level:High##List:None|||ID:7##Name:Parameter 7##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:8##Name:Parameter 8##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:9##Name:Parameter 9##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:10##Name:Retention##Min:0.00##Max:0.00##Std:0.00##Type:Percentage##Level:High##List:None|||ID:11##Name:T&Cs##Min:0##Max:0##Std:0##Type:Absolete##Level:Low##List:Param11')
+
+
+
+rollback
+
+select * from FB_ENT_PRODUCT_INFO_TBL where ProductKey_pkey like '3E5F46F7-F190-44EB-871D-4585486F323F'
+
+
+
+--INSERT INTO INFO_STATIC_TBL 
+--------------------------------------------------------------------------------------------------------
+
+
+begin tran
+
+INSERT INTO FB_ENT_INFO_STATIC_TBL values('2026-08-03 00:00:00.000','qbeae_bmwinsuranceservices_gap_policy_1','qbeae_bmwinsuranceservices_gap','Policy',-1,-1,-1,-1,-1,-1,-1,'BMW Insurance Services GAP',1,-1)
+INSERT INTO FB_ENT_INFO_STATIC_TBL values('2026-08-03 00:00:00.000','qbeae_bmwinsuranceservices_gap_claim_1','qbeae_bmwinsuranceservices_gap','Claim',-1,-1,-1,-1,-1,-1,-1,'BMW Insurance Services GAP',1,-1)
+
+rollback
+
+select * from FB_ENT_INFO_STATIC_TBL order by StartDate desc 
+
+
+
+--INSERT INTO SCHEME_TBL 
+--------------------------------------------------------------------------------------------------------
+
+begin tran
+
+INSERT INTO FB_ENT_SCHEME_TBL values('qbeae_bmwinsuranceservices_gap','BMW Insurance Services','GAP')
+
+rollback
+
+select * from FB_ENT_SCHEME_TBL where SchemeGroup='BMW Insurance Services'
+
+
+
+--INSERT INTO CLAIM_AUTHORITY_LIMIT 
+--------------------------------------------------------------------------------------------------------
+
+begin tran
+
+--update  FB_ENT_CLAIM_AUTHORITY_LIMIT_TBL  set ClaimsAdjustorAuthLimit='200000' , ClaimsTeamLeaderAuthLimit='500000', ClaimManagerAuthLimit='1000000' , RegionalManagerAuthLimit='1000000' ,QBEClaimsAuthLimit='999999999' where PKey_Pkey='B86C2952-BC1D-4589-B378-4DC972B4BA68'
+--update  FB_ENT_CLAIM_AUTHORITY_LIMIT_TBL_HIST  set ClaimsAdjustorAuthLimit='200000' , ClaimsTeamLeaderAuthLimit='500000', ClaimManagerAuthLimit='1000000' , RegionalManagerAuthLimit='1000000' ,QBEClaimsAuthLimit='999999999' where PKey_Pkey='B86C2952-BC1D-4589-B378-4DC972B4BA68'
+
+rollback
+
+
+select * from FB_ENT_CLAIM_AUTHORITY_LIMIT_TBL where PKey_Pkey='B86C2952-BC1D-4589-B378-4DC972B4BA68'
+select * from FB_ENT_CLAIM_AUTHORITY_LIMIT_TBL_HIST  where PKey_Pkey='B86C2952-BC1D-4589-B378-4DC972B4BA68'
+
+
+
+
+-- after this add environment product and assesmentprod in danni_environs.xml
