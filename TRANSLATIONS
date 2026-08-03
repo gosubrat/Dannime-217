@@ -1,0 +1,14 @@
+-------------------------------------------------------------------customer screen
+Address 1   att.c_address1    Address Line 1
+Address 2   att.c_address2    Address Line 2
+City                          Town/City
+Address 4                     Country
+VAT Registered                Is Customer VAT Registered?
+
+
+--------------------------------------------------------------------- Policy cretaion screen
+
+200000 kms                                       200000
+Vehicle Registration Date     att.v_regdate      First Registration Date
+Extended Warranty Sold Date                       Policy Sold Date
+Vehicle Purchase Price (USD)                       Vehicle Cost
