@@ -12,3 +12,5 @@ VAT Registered                Is Customer VAT Registered?
 Vehicle Registration Date     att.v_regdate      First Registration Date
 Extended Warranty Sold Date                       Policy Sold Date
 Vehicle Purchase Price (USD)                       Vehicle Cost
+Manufacturers Warranty Start Date                 Manufacturer Warranty Start Date
+Vehicle Sold Date cannot be more than 30 days in the past.     Vehicle Sold Date cannot be more than 30 days in the past
