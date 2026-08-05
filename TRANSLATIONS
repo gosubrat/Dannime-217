@@ -15,3 +15,35 @@ Vehicle Purchase Price (USD)                       Vehicle Cost
 Manufacturers Warranty Start Date                 Manufacturer Warranty Start Date
 Vehicle Sold Date cannot be more than 30 days in the past.     Vehicle Sold Date cannot be more than 30 days in the past
 Policy Sold Date cannot be more than 30 days in the future        Policy Sold Date cannot be more than 30 days in the future from the current system date
+P O Box                      att.cs_postzip       P.O.Box
+Plan Cover Amount                                       Cover Amount
+
+User Reference                                Insurance Reference --update in two places
+Sales Person Name                             Sales Person      
+
+
+--------------------------------------------------------------------- Derive Details screen
+Claim Limit (aggregate)                                        Claim Limit Total in AED
+Policy Term (months)                                           Policy Term (Months)
+Start KM                                                       Start Mileage (KM)
+Expiry KM                                                      Policy Expiry Mileage
+Policy Type                                                     Product Type
+Product Amount                                                 Cover Amount
+System Entry Date                                               Policy Entry Date
+
+--------------------------------------------------------------------- Outer Claim screen
+
+ClaimMileage                                    Claim Mileage (KM)
+Formsent Date                                   Claim Form Sent Date
+Formreceipt Date                                Claim Form Recipt Date
+Fincom Name                                     Finance Company Name
+Fincom Telephone                                Finance Co Telephone
+Fincom Contact                                  Finance Co Contact
+Fincom Agreement Number                         Finance Agreement No
+Settlement Amount            gap.att.settlementamount         Final Settlement Amount
+Primary Insurer Address1                        Primary Insurer Address 1
+ Primary Insurer Address2                       Primary Insurer Address 2
+Primary Insurer Address3                         Primary Insurer Address 3
+Primary insurer contact Person                   Primary Insurer Contact Person Phone No.
+Primary Insurer Policy Number                    Primary Insurer Policy No
+ Primary Insurer Claim Number                    Primary Insurer Claim No
