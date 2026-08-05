@@ -14,3 +14,4 @@ Extended Warranty Sold Date                       Policy Sold Date
 Vehicle Purchase Price (USD)                       Vehicle Cost
 Manufacturers Warranty Start Date                 Manufacturer Warranty Start Date
 Vehicle Sold Date cannot be more than 30 days in the past.     Vehicle Sold Date cannot be more than 30 days in the past
+Policy Sold Date cannot be more than 30 days in the future        Policy Sold Date cannot be more than 30 days in the future from the current system date
