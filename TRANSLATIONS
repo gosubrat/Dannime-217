@@ -22,6 +22,9 @@ User Reference                                Insurance Reference --update in tw
 Sales Person Name                             Sales Person      
 
 
+-------------------policy search 
+Surname    att.s_lastname           Last Name
+
 --------------------------------------------------------------------- Derive Details screen
 Claim Limit (aggregate)                                        Claim Limit Total in AED
 Policy Term (months)                                           Policy Term (Months)
